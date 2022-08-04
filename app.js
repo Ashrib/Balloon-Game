@@ -23,11 +23,9 @@ function matchBalloon(v) {
         document.getElementById("score").innerText = ++score;
     }
     else{
-        function tree() {
-            document.getElementById(v).style.boxShadow = "3px 5px 4px red";
-            setInterval(tree,3000)
-        }
-        tree()
+            document.getElementById(v).style.boxShadow = "0px 0px 40px red";
+            document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
+            document.getElementById(v).style.transition = "3s"
     }
     document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
 };
