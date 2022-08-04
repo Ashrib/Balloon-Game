@@ -25,7 +25,7 @@ function matchBalloon(v) {
     else{
             document.getElementById(v).style.boxShadow = "0px 0px 40px red";
             document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
-            document.getElementById(v).style.transition = "3s"
+            document.getElementById(v).style.transition = "3s";
     }
     document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
 };
