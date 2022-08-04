@@ -1,63 +1,36 @@
 // Filling random colors in balloons
 var colors = ["#84cc16", "#22c55e","#ef4444", "#fde047", "#8b5cf6", "#ec4899", "#fb923c"];
-var ids = ["bal-1","bal-2", "bal-3", "bal-4", "bal-5", "bal-6", "bal-7","bal-8", "bal-9", "bal-10", "bal-11", "bal-12", "bal-13", "bal-14","bal-15", "bal-16", "bal-17", "bal-18", "bal-19", "bal-20","bal-21", "bal-22", "bal-23", "bal-24", "bal-25", "bal-26", "bal-27"]
+var ids = ["balloon-1","balloon-2", "balloon-3", "balloon-4", "balloon-5", "balloon-6", "balloon-7","balloon-8", "balloon-9", "balloon-10", "balloon-11", "balloon-12", "balloon-13", "balloon-14","balloon-15", "balloon-16", "balloon-17", "balloon-18", "balloon-19", "balloon-20","balloon-21", "balloon-22", "balloon-23", "balloon-24", "balloon-25", "balloon-26", "balloon-27"];
  
 for(var i = 0; i < ids.length; i++) {
     var randomColor = colors[ Math.floor(Math.random() * colors.length) ];
     var rndmBalloon = ids[i];
     var getBalloon = document.getElementById(rndmBalloon);
     getBalloon.style.backgroundColor = randomColor;
-}
+};
 // color for match
 var colorBox = document.getElementById("color-to-match");
-colorBox.style.backgroundColor =  colors[ Math.floor(Math.random() * colors.length) ];
+colorBox.style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
 
 // Match the balloon
-function matchBalloon(balloon) {
-    var tfb = document.getElementById(balloon);
-    console.log(tfb.style.backgroundColor)
-
-    /*var balloonId;
-    switch (balloon) {
-        case "balloon-1" :
-            balloonId = "bal-1";
-            break;
-        case "balloon-2" :
-            balloonId = "bal-2";
-            break;
-        case "balloon-3" :
-            balloonId = "bal-3";
-            break;
-        case "balloon-4" :
-            balloonId = "bal-4";
-            break;
-        case "balloon-5" :
-            balloonId = "bal-5";
-            break;
-        case "balloon-6" :
-            balloonId = "bal-6";
-            break;
-        case "balloon-7" :
-            balloonId = "bal-7";
-            break;
-        case "balloon-8" :
-            balloonId = "bal-8";
-            break;
-        case "balloon-9" :
-            balloonId = "bal-9";
-            break;
-        case "balloon-10" :
-            balloonId = "bal-10";
-            break;
-        case "balloon-11" :
-            balloonId = "bal-11";
-            break;
-        case "balloon-12" :
-            balloonId = "bal-12";
-            break;
+var score = 0;
+document.getElementById("score").innerText = score;
+function matchBalloon(v) {
+    var clickedBalloon = document.getElementById(v).style.backgroundColor;
+    
+    if(clickedBalloon === colorBox.style.backgroundColor) {
+        colorBox.style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
+        document.getElementById("score").innerText = ++score;
     }
-    console.log(balloonId)
-    var balon = document.getElementById(balloonId);
-    console.log(balon.style.backgroundColor)*/
+    else{
+        function tree() {
+            
+        document.getElementById(v).style.boxShadow = "3px 5px 4px red";
+            setTimeout(tree,1000)
+        }
+        tree()
+        document.getElementById(v).style.boxShadow = "none";
+    }
+    
+    document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
 }
- 
