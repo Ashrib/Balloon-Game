@@ -24,13 +24,10 @@ function matchBalloon(v) {
     }
     else{
         function tree() {
-            
-        document.getElementById(v).style.boxShadow = "3px 5px 4px red";
-            setTimeout(tree,1000)
+            document.getElementById(v).style.boxShadow = "3px 5px 4px red";
+            setInterval(tree,3000)
         }
         tree()
-        document.getElementById(v).style.boxShadow = "none";
     }
-    
     document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
-}
+};
