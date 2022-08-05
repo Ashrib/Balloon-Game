@@ -14,18 +14,34 @@ colorBox.style.backgroundColor = colors[ Math.floor(Math.random() * colors.lengt
 
 // Match the balloon
 var score = 0;
+var wrongScore = 0;
 document.getElementById("score").innerText = score;
 function matchBalloon(v) {
+    var theBal = document.getElementById(v);
     var clickedBalloon = document.getElementById(v).style.backgroundColor;
     
     if(clickedBalloon === colorBox.style.backgroundColor) {
         colorBox.style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
         document.getElementById("score").innerText = ++score;
+        theBal.animate([    //animation on correct balloon
+            { transform: 'translateY(0px)'},
+            { transform: 'translateY(-800px)'},
+            { transition: 'transfor3s ease'}
+        ],{
+            duration: 2000
+        });
     }
     else{
+            ++wrongScore;
             document.getElementById(v).style.boxShadow = "0px 0px 40px red";
             document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
             document.getElementById(v).style.transition = "3s";
+            
     }
     document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
+    if(wrongScore === 5) {
+        document.getElementById("game-over").style.display = "flex"
+    }
 };
+
+
