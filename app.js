@@ -12,36 +12,65 @@ for(var i = 0; i < ids.length; i++) {
 var colorBox = document.getElementById("color-to-match");
 colorBox.style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
 
+/*var boolean;
+function wrongAlert() {
+     boolean = false;
+    
+    if(boolean === false) {
+        document.getElementById("wrong").style.display = "flex";
+        function reverse(){
+            boolean = true;
+            setTimeout(reverse, 2000)
+        }
+        
+        if(boolean === true) {
+            
+            document.getElementById("wrong").style.display = "none";
+        
+    }reverse();
+    }
+    
+    
+};*/
+
+
+
+
+
+
 // Match the balloon
 var score = 0;
+document.getElementById("score-update").innerText = score;
 var wrongScore = 0;
-document.getElementById("score").innerText = score;
+
 function matchBalloon(v) {
     var theBal = document.getElementById(v);
     var clickedBalloon = document.getElementById(v).style.backgroundColor;
     
     if(clickedBalloon === colorBox.style.backgroundColor) {
-        colorBox.style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
-        document.getElementById("score").innerText = ++score;
+        document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
+        document.getElementById(v).style.transition = "1s";
+        document.getElementById("score-update").innerText = ++score;
         theBal.animate([    //animation on correct balloon
-            { transform: 'translateY(0px)'},
-            { transform: 'translateY(-800px)'},
-            { transition: 'transfor3s ease'}
+        { transform: 'translateY(0px)'},
+        { transform: 'translateY(-800px)'},
+        { transform: 'translateX(0px)'},
+        { transform: 'translateY(-30px)'},
+        { transform: 'translateY(10px)'},
+        { transition: 'transfor1s ease'}
         ],{
-            duration: 2000
+            duration: 1000
         });
     }
     else{
-            ++wrongScore;
-            document.getElementById(v).style.boxShadow = "0px 0px 40px red";
-            document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
-            document.getElementById(v).style.transition = "3s";
-            
-    }
-    document.getElementById(v).style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
+        ++wrongScore;
+        //wrongAlert();
+        for(var i = 0; i < wrongScore; i++) { // game lives
+            document.getElementById(wrongScore).style.display = "none";
+        }; 
+    };
+    colorBox.style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
     if(wrongScore === 5) {
-        document.getElementById("game-over").style.display = "flex"
-    }
+        document.getElementById("game-over").style.display = "flex";
+    };
 };
-
-

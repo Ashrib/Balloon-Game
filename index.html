@@ -6,14 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Balloon game</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alumni+Sans+Inline+One&family=Finger+Paint&family=Finlandica:ital@1&family=Fredoka+One&family=Indie+Flower&family=Rajdhani:wght@500;700&family=Rubik+Mono+One&family=Rubik+Moonrocks&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="game-over">Game over</div>
+    <div id="wrong"></div>
     <div id="container">
-        <div id="game-title">Blast The Balloons</div>
+        <div id="game-title">Match The Balloons</div>
         <div id="game-starts">
-            <div id="match-color">Blast the Balloon of this color <div id="color-to-match"></div> </div>
-            <div id="points">Your Score : <span id="score"></span></div>
+            <div id="match-color">Pop the Balloon of this color <div id="color-to-match"></div> </div>
+            <div id="points">
+                <div id="scores">Your Score : <span id="score-update"></span></div>
+                <div id="lives">lives: <div class="live" id="1"></div><div class="live" id="2"></div><div class="live" id="3"></div><div class="live" id="4"></div><div class="live" id="5"></div></div>
+            </div>
         </div>
         <div id="balloon-box">
             <div id="balloon-1" onClick="matchBalloon('balloon-1')" class="balloon"></div>
