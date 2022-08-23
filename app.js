@@ -12,32 +12,6 @@ for(var i = 0; i < ids.length; i++) {
 var colorBox = document.getElementById("color-to-match");
 colorBox.style.backgroundColor = colors[ Math.floor(Math.random() * colors.length) ];
 
-/*var boolean;
-function wrongAlert() {
-     boolean = false;
-    
-    if(boolean === false) {
-        document.getElementById("wrong").style.display = "flex";
-        function reverse(){
-            boolean = true;
-            setTimeout(reverse, 2000)
-        }
-        
-        if(boolean === true) {
-            
-            document.getElementById("wrong").style.display = "none";
-        
-    }reverse();
-    }
-    
-    
-};*/
-
-
-
-
-
-
 // Match the balloon
 var score = 0;
 document.getElementById("score-update").innerText = score;
@@ -64,7 +38,6 @@ function matchBalloon(v) {
     }
     else{
         ++wrongScore;
-        //wrongAlert();
         for(var i = 0; i < wrongScore; i++) { // game lives
             document.getElementById(wrongScore).style.display = "none";
         }; 
